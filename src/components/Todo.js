@@ -26,7 +26,7 @@ class Todo extends Component {
 
 
 Todo.propTypes = {
-  todos: PropTypes.array.isRequired
+  todo: PropTypes.object.isRequired
 }
 
 const btnStyle = {

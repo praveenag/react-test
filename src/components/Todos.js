@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import Todo from './Todo';
+import Todo from './todo';
 import PropTypes from 'prop-types';
 
 class Todos extends Component {
   render() {
     return this.props.todos.map(todo => (
       <Todo key={todo.id}
-      todo={todo} 
+      todo={todo}
       markComplete = {this.props.markComplete}
       delTodo = {this.props.delTodo}/>
     ));
