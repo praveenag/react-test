@@ -17,10 +17,10 @@ import './app.css';
     todos: []
   }
 
-  componentDidMount() {
-    axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10')
-    .then(res => this.setState({todos: res.data}));
-  }
+  // componentDidMount() {
+  //   axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10')
+  //   .then(res => this.setState({todos: res.data}));
+  // }
 
   markComplete = (id) => {
     this.setState({todos: this.state.todos.map(todo => {
@@ -31,11 +31,11 @@ import './app.css';
     })});
   }
 
-  _delTodo = (id) => {
+  delTodo = (id) => {
     this.setState({todos: [...this.state.todos.filter(todo => todo.id !== id)]});
   }
 
-  _addTodo = (title) => {
+  addTodo = (title) => {
     const newTodo = {
       id: uuid.v4(),
       title,
@@ -44,13 +44,13 @@ import './app.css';
     this.setState({todos:[...this.state.todos, newTodo]});
   }
 
-  delTodo = (id) => {
+  _delTodo = (id) => {
     axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
     .then(res =>
         this.setState({todos: [...this.state.todos.filter(todo => todo.id !== id)]}));
   }
 
-  addTodo = (title) => {
+  _addTodo = (title) => {
     axios.post('https://jsonplaceholder.typicode.com/todos', {
       title,
       completed: false
