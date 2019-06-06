@@ -7,6 +7,7 @@ class Todo extends Component {
       background: '#f4f4f4',
       padding: '10px',
       borderBottom: '1px #ccc dotted',
+      textAlign: 'left',
       textDecoration: this.props.todo.completed? 'line-through': 'none',
       fontWeight: this.props.todo.completed? 'normal': 'bold'
     }
@@ -26,7 +27,9 @@ class Todo extends Component {
 
 
 Todo.propTypes = {
-  todo: PropTypes.object.isRequired
+  todo: PropTypes.object.isRequired,
+  markComplete: PropTypes.func.isRequired,
+  delTodo: PropTypes.func.isRequired
 }
 
 const btnStyle = {
